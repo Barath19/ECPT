@@ -1,0 +1,14 @@
+pcd: data/kitti/000008.bin
+img: data/kitti/000008.png
+infos: data/kitti/000008.pkl
+model: models/mvxnet/mvxnet_fpn_dv_second_secfpn_8xb2-80e_kitti-3d-3class.py
+weights: checkpoints/mvxnet_fpn_dv_second_secfpn_8xb2-80e_kitti-3d-3class-8963258a.pth
+device: 'cuda:0'
+cam-type: 'CAM_FRONT'
+pred-score-thr: 0.3
+out-dir: outputs
+show: true
+wait-time: -1
+no-save-vis: false
+no-save-pred: false
+print-result: true
