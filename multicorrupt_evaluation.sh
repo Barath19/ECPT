@@ -10,8 +10,8 @@ logfile="evaluation_log.txt"
 # Run basline on the original nuscenes dataset
 echo "Original datatset"
 # Create soft link in /workspace/data/nuscenes
-ln -s "$corrupt_dataset_root/spatialmisalignment/orig/sweeps/LIDAR_TOP" "/home/bk/Research/thesis/datasets/nuScenes_mini/sweeps/LIDAR_TOP"
-ln -s "$corrupt_dataset_root/spatialmisalignment/orig/samples/LIDAR_TOP" "/home/bk/Research/thesis/datasets/nuScenes_mini/samples/LIDAR_TOP"
+ln -s "$corrupt_dataset_root/spatialmisalignment/orig/sweeps/LIDAR_TOP/" "$nuscenes_data_dir/sweeps/LIDAR_TOP"
+ln -s "$corrupt_dataset_root/spatialmisalignment/orig/samples/LIDAR_TOP/" "$nuscenes_data_dir/samples/LIDAR_TOP"
 # Perform model evaluation
 output=$(python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-mini-3d.py /home/bk/Research/thesis/benchmarks/mmdetection3d/checkpoints/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d-5239b1af.pth)
 echo "$output" > "orig_output.txt"
@@ -32,8 +32,8 @@ for severity in "${severity_levels[@]}"; do
   # Log the current configuration in the terminal
   echo "Current Configuration: Severity=$severity"
   # Create soft link 
-  ln -s "$corrupt_dataset_root/spatialmisalignment/$severity/sweeps/LIDAR_TOP" "$nuscenes_data_dir/sweeps/LIDAR_TOP"
-  ln -s "$corrupt_dataset_root/spatialmisalignment/$severity/samples/LIDAR_TOP" "$nuscenes_data_dir/samples/LIDAR_TOP"
+  ln -s "$corrupt_dataset_root/spatialmisalignment/$severity/sweeps/LIDAR_TOP/" "$nuscenes_data_dir/sweeps/LIDAR_TOP"
+  ln -s "$corrupt_dataset_root/spatialmisalignment/$severity/samples/LIDAR_TOP/" "$nuscenes_data_dir/samples/LIDAR_TOP"
   # Perform model evaluation
   output=$(python tools/test.py projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-mini-3d.py /home/bk/Research/thesis/benchmarks/mmdetection3d/checkpoints/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d-5239b1af.pth)
  # Save the entire output to a separate text file
