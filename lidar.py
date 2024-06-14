@@ -1,19 +1,6 @@
 ## This script is adopted from https://github.com/ika-rwth-aachen/MultiCorrupt
 ## Thanks to the authors of multicorrupt
-import os
-import copy
-import math
-from typing import Dict, List, Tuple
-from copy import deepcopy
 import numpy as np
-import pickle5 as pickle
-from pathlib import Path
-import yaml
-import itertools
-from scipy.stats import linregress
-from sklearn.linear_model import RANSACRegressor
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
 
 PI = np.pi
 
