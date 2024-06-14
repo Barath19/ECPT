@@ -161,7 +161,6 @@ cython_debug/
 
 # Open3d
 
-Open3D*
-calib
-mmdetection3d
+data/
+.vscode/
 
